@@ -4,7 +4,9 @@ services:
     image: sentry:9
     restart: unless-stopped
     ports:
-     - 9000:9000
+      - 9000:9000
+    volumes:
+      - ./sentry-config.yml:/etc/sentry/config.yml
     environment:
       - SENTRY_SECRET_KEY="%**stxva=es(qsts1z1eu!1uks3r9q8z@w8dh8hm&akv3p9a*s"
       - SENTRY_REDIS_HOST=sentry_redis
