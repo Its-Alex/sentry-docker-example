@@ -1,5 +1,6 @@
 .PHONY: up
 up:
+	./generate-sentry-secret-key.sh
 	docker-compose up -d redis postgres
 	docker-compose -f docker-compose-tools.yml run --rm wait_postgres
 	docker-compose -f docker-compose-tools.yml run --rm wait_redis

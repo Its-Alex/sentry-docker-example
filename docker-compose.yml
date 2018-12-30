@@ -7,8 +7,8 @@ services:
       - 9000:9000
     volumes:
       - ./sentry-config.yml:/etc/sentry/config.yml
+    env_file: env
     environment:
-      - SENTRY_SECRET_KEY="%**stxva=es(qsts1z1eu!1uks3r9q8z@w8dh8hm&akv3p9a*s"
       - SENTRY_REDIS_HOST=redis
       - SENTRY_POSTGRES_HOST=postgres
       - SENTRY_DB_USER=sentry
@@ -17,8 +17,8 @@ services:
   cron:
     image: sentry:9.0.0
     restart: unless-stopped
+    env_file: env
     environment:
-      - SENTRY_SECRET_KEY="%**stxva=es(qsts1z1eu!1uks3r9q8z@w8dh8hm&akv3p9a*s"
       - SENTRY_REDIS_HOST=redis
       - SENTRY_POSTGRES_HOST=postgres
       - SENTRY_DB_USER=sentry
@@ -28,8 +28,8 @@ services:
   worker:
     image: sentry:9.0.0
     restart: unless-stopped
+    env_file: env
     environment:
-      - SENTRY_SECRET_KEY="%**stxva=es(qsts1z1eu!1uks3r9q8z@w8dh8hm&akv3p9a*s"
       - SENTRY_REDIS_HOST=redis
       - SENTRY_POSTGRES_HOST=postgres
       - SENTRY_DB_USER=sentry
