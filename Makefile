@@ -4,7 +4,7 @@
 	docker-compose run --rm wait_sentry_redis
 	docker-compose run --rm sentry sentry upgrade --noinput
 	docker-compose run --rm sentry sentry createuser \
-		--email user@example.com \
+		--email admin@example.com \
 		--password password \
 		--superuser --no-input
 	docker-compose up -d
