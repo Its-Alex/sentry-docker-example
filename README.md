@@ -23,7 +23,14 @@ Default login are:
 * username: admin@example.com
 * password: password
 
-And clean it with:
+Sometime, you need to extract project DSN to use it in script:
+
+```
+$ ./display-sentry-dsn.sh
+http://31c372722bba471db79faa5b138319e3:c9ebc1de783c4614b679f899cdf0a3f8@0.0.0.0:9001/1
+```
+
+Execute this line to stop and clean Sentry installation:
 
 ```
 $ make clean
