@@ -1,8 +1,8 @@
 .PHONY: up
-	docker-compose up -d sentry_redis sentry_postgres
-	docker-compose run --rm wait_sentry_postgres
-	docker-compose run --rm wait_sentry_redis
 	docker-compose run --rm sentry sentry upgrade --noinput
+	docker-compose up -d redis postgres
+	docker-compose -f docker-compose-tools.yml run --rm wait_postgres
+	docker-compose -f docker-compose-tools.yml run --rm wait_redis
 	docker-compose run --rm sentry sentry createuser \
 		--email admin@example.com \
 		--password password \
