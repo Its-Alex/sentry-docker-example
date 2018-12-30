@@ -20,7 +20,7 @@ You can now go on the interface create a new project at [http://localhost:9000](
 
 Default login are:
 
-* username: user@example.com
+* username: admin@example.com
 * password: password
 
 And clean it with:
