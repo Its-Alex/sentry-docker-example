@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
   sentry:
     image: sentry:9
@@ -60,5 +60,4 @@ services:
 
 networks:
   default:
-    external:
-      name: sentry
+    name: sentry
