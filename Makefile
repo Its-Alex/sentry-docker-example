@@ -10,6 +10,7 @@ up:
 		--password password \
 		--superuser --no-input
 	docker-compose up -d
+	@echo "Open your browser at http://`docker-compose port sentry 9000` (login, password: admin@example.com / password)"
 
 .PHONY: clean
 clean:
