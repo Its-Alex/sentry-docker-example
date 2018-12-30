@@ -1,9 +1,4 @@
-.PHONY: create-docker-sentry-network
-create-docker-sentry-network:
-	docker network create sentry 2>>/dev/null || true
-
 .PHONY: up
-up: create-docker-sentry-network
 	docker-compose up -d sentry_redis sentry_postgres
 	docker-compose run --rm wait_sentry_postgres
 	docker-compose run --rm wait_sentry_redis
@@ -16,6 +11,5 @@ up: create-docker-sentry-network
 
 .PHONY: clean
 clean:
-	docker network rm sentry 2>>/dev/null || true
 	docker-compose down -v --remove-orphans
 	rm -rf postgresql-data/
