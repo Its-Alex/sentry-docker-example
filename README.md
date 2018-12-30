@@ -1,8 +1,16 @@
 # Sentry docker-compose example
 
-This is an docker-compose file to deploy sentry v9
+This is a comprehensive [Sentry](https://sentry.io/welcome/) installation based on one `docker-compose.yml` file.
 
-You can launch this sentry with:
+Sentry version support: [9.0.0](https://github.com/getsentry/sentry/releases/tag/9.0.0)
+
+Comprehensive means that the `docker-compose.yml` contains all Sentry dependencies to work:
+
+- PostgreSQL
+- Redis
+- Postfix
+
+You can start and configure Sentry with:
 
 ```
 $ make up
