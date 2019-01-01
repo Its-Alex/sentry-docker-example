@@ -8,7 +8,6 @@ Comprehensive means that the `docker-compose.yml` contains all Sentry dependenci
 
 - PostgreSQL
 - Redis
-- Postfix
 
 You can start and configure Sentry with:
 
@@ -35,3 +34,14 @@ Execute this line to stop and clean Sentry installation:
 ```
 $ make clean
 ```
+
+# Ansible role
+
+Ansible role has been created based on this repository
+
+* [ansible-role-sentry](https://github.com/harobed/ansible-role-sentry)
+* [Ansible Role Sentry usage demonstration repository](https://github.com/harobed/ansible-role-sentry-example)
+
+# Licence
+
+[MIT](https://en.wikipedia.org/wiki/MIT_License)
