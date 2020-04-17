@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   sentry:
-    image: sentry:9.0.0
+    image: sentry:9.1.2
     restart: unless-stopped
     ports:
       - 9000:9000
@@ -15,7 +15,7 @@ services:
       - SENTRY_DB_PASSWORD=sentry
 
   cron:
-    image: sentry:9.0.0
+    image: sentry:9.1.2
     restart: unless-stopped
     env_file: env
     environment:
@@ -26,7 +26,7 @@ services:
     command: run cron
 
   worker:
-    image: sentry:9.0.0
+    image: sentry:9.1.2
     restart: unless-stopped
     env_file: env
     environment:
@@ -37,7 +37,7 @@ services:
     command: run worker
 
   redis:
-    image: redis:4.0-alpine
+    image: redis:5.0-alpine
     restart: unless-stopped
 
   postgres:
