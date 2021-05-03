@@ -1,2 +1,7 @@
+# Vagrant
 **/.vagrant/
-**/*-console.log
+**/*.log
+
+# Volumes
+./volumes/
+!./volumes/.keep

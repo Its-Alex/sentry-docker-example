@@ -45,11 +45,12 @@ Vagrant.configure("2") do |config|
     sentry.vm.hostname = "sentry"
     # Disable default synced folder
     sentry.vm.synced_folder '.', '/vagrant', disabled: true
-    sentry.vm.synced_folder './scripts/', '/scripts/'
+    sentry.vm.synced_folder './scripts/', '/srv/sentry/scripts'
+    sentry.vm.synced_folder './volumes/', '/srv/sentry/' 
 
     sentry.vm.network "private_network", type: "dhcp"
 
-    sentry.hostmanager.aliases = %w(sentry.local)
+    sentry.hostmanager.aliases = %w(local.sentry.fr)
 
     $script = <<EOF
 set -e
@@ -61,11 +62,16 @@ iptables -I OUTPUT -j ACCEPT
 
 # Install docker
 
+sudo apt-get update -y
+sudo apt-get upgrade -y
+sudo apt-get install -y python3-pip
 sudo apt-get -y install \
     apt-transport-https \
     ca-certificates \
     curl \
     gnupg \
+    jq \
+    python3-pip \
     lsb-release
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 echo \
@@ -76,9 +82,6 @@ sudo apt-get -y install docker-ce docker-ce-cli containerd.io
 
 # Install python3-pip and docker-compose
 
-sudo apt-get update -y
-sudo apt-get upgrade -y
-sudo apt-get install -y python3-pip
 sudo pip3 install -U pip
 sudo pip3 install -U docker-compose
 
