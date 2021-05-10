@@ -5,3 +5,6 @@
 # Volumes
 ./volumes/
 !./volumes/.keep
+
+# Data files
+/scripts/dump/
