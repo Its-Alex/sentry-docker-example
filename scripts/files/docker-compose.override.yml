@@ -11,3 +11,9 @@ services:
   nginx:
     environment:
       - VIRTUAL_HOST=local.sentry.fr
+      - VIRTUAL_PORT=9000
+
+  wait_postgres:
+    image: "index.docker.io/waisbrot/wait"
+    environment:
+      TARGETS: postgres:5432
