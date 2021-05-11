@@ -46,7 +46,7 @@ Vagrant.configure("2") do |config|
     # Disable default synced folder
     sentry.vm.synced_folder '.', '/vagrant', disabled: true
     sentry.vm.synced_folder './scripts/', '/srv/sentry/scripts'
-    sentry.vm.synced_folder './volumes/', '/srv/sentry/' 
+    sentry.vm.synced_folder './sentry-onpremise/', '/srv/sentry/onpremise' 
 
     sentry.vm.network "private_network", type: "dhcp"
 
