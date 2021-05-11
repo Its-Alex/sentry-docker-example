@@ -14,7 +14,9 @@ if test -f "${SENTRY_FOLDER}/docker-compose.yml"; then
     )
 fi
 
-# shellcheck disable=SC2046
-docker volume rm $(docker volume ls -f 'name=sentry' -q)
+if [[ $(docker volume ls -f 'name=sentry' -q | wc -l) -gt 0 ]]; then
+    # shellcheck disable=SC2046
+    docker volume rm $(docker volume ls -f 'name=sentry' -q)
+fi
 
-rm -rf ${SENTRY_FOLDER}
+rm -rf ${SENTRY_FOLDER:?}/* ${SENTRY_FOLDER:?}/.*
