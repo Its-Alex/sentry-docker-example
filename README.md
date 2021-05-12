@@ -28,6 +28,7 @@ $ vagrant plugin install vagrant-hostmanager --plugin-version 1.8.9
     - [Setup / Destroy](#setup--destroy)
     - [Create user](#create-user)
     - [Import postgres dump](#import-postgres-dump)
+    - [Get default sentry DSN](#get-default-sentry-dsn)
 
 ## Get started
 
@@ -122,3 +123,9 @@ to do it **before** installing sentry.
 You must place and rename your dump in `/scripts/dump/dump.sql`.
 
 Then connect to VM and launch [`import-sql-dump.sh`](/scripts/import-sql-dump.sh).
+
+### Get default sentry DSN
+
+You can get the default created sentry dsn for test.
+
+Then connect to VM and launch [`display-sentry-dsn.sh`](/scripts/display-sentry-dsn.sh).
